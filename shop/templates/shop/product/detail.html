@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ product.name }}</h2>
+    <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+        {% if product.images.exists %}
+            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" style="max-width: 400px;">
+        {% endif %}
+        <div>
+            <p><strong>Цена:</strong> {{ product.price }} ₽</p>
+            <p><strong>Статус:</strong> {% if product.available %}В наличии{% else %}Нет в наличии{% endif %}</p>
+            <p>{{ product.description|linebreaks }}</p>
+        </div>
+    </div>
+
+    {% if product.images.all.count > 1 %}
+    <h3>Галерея:</h3>
+    <div style="display: flex; gap: 10px;">
+        {% for image in product.images.all %}
+            <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" style="width: 100px; height: 100px; object-fit: cover;">
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

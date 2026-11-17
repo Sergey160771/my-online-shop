@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title|default:"Главная" }} | Мой магазин</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-800 flex flex-col">
+
+    <!-- Шапка сайта -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
+
+            <h1 class="text-3xl font-bold text-blue-600">
+                <a href="/">Мой магазин</a>
+            </h1>
+
+            <nav class="flex gap-6 text-gray-600 font-medium">
+                <a href="/" class="hover:text-blue-600 transition">
+                    Главная
+                </a>
+
+                <a href="/categories/" class="hover:text-blue-600 transition">
+                    Категории
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main class="w-full max-w-7xl mx-auto px-4 py-8 flex-grow">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            &copy; 2026 Мой магазин. Все права защищены.
+        </div>
+    </footer>
+
+</body>
+</html>

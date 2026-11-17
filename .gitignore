@@ -38,3 +38,11 @@ venv.bak/
 # IDE
 .vscode/
 .idea/
+
+my-online-shop.docx
+
+# Node.js
+node_modules/
+
+# Временные файлы Microsoft Office
+~$*

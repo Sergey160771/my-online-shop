@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+/* Шаблоны Django, в которых Tailwind должен искать CSS-классы */
+@source "../../config/templates";
+@source "../../shop/templates";
